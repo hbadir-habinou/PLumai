@@ -1,0 +1,38 @@
+{% extends 'prune_app/base.html' %}
+{% load static %}
+
+{% block title %}Nos Services - PruneAI{% endblock %}
+
+{% block content %}
+    <section class="section section-light">
+        <div class="container">
+            <h2 class="section-title text-center">Nos Services</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="services-card">
+                        <i class="bi bi-camera"></i>
+                        <h3>Scanner & Analyse</h3>
+                        <p>Scannez vos prunes pour une classification immédiate grâce à notre technologie d'intelligence artificielle de pointe.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="services-card">
+                        <i class="bi bi-graph-up"></i>
+                        <h3>Suivi & Statistiques</h3>
+                        <p>Accédez à des tableaux de bord interactifs et à des analyses détaillées sur vos cultures et productions.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="services-card">
+                        <i class="bi bi-lightbulb"></i>
+                        <h3>Recommandations</h3>
+                        <p>Recevez des conseils personnalisés pour optimiser la qualité et le rendement de vos cultures.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="{% url 'signin' %}" class="btn btn-primary">Commencer maintenant</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

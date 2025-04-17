@@ -1,0 +1,56 @@
+{% extends 'prune_app/base.html' %}
+{% load static %}
+
+{% block title %}Contact - PruneAI{% endblock %}
+
+{% block content %}
+    <section class="section section-light">
+        <div class="container">
+            <h2 class="section-title text-center">Contactez-nous</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <form class="contact-form" method="POST">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Votre nom" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Votre email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Sujet">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Votre message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                    </form>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <div class="contact-info">
+                        <div class="mb-4">
+                            <i class="bi bi-geo-alt text-primary me-2"></i>
+                            <span>123 Avenue de l'Innovation, 75000 Paris, France</span>
+                        </div>
+                        <div class="mb-4">
+                            <i class="bi bi-envelope text-primary me-2"></i>
+                            <span>contact@pruneai.com</span>
+                        </div>
+                        <div class="mb-4">
+                            <i class="bi bi-telephone text-primary me-2"></i>
+                            <span>+33 1 23 45 67 89</span>
+                        </div>
+                        <div class="mb-4">
+                            <i class="bi bi-clock text-primary me-2"></i>
+                            <span>Lun - Ven: 9h00 - 18h00</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="ratio ratio-16x9">
+                            <img src="{% static 'prune_app/images/placeholder_600x400.png' %}" alt="Carte" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

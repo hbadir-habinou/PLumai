@@ -1,0 +1,131 @@
+{% extends 'prune_app/base.html' %}
+{% load static %}
+
+{% block title %}Mon Dashboard - PruneAI{% endblock %}
+
+{% block content %}
+    <main class="main-content">
+        <div class="container">
+            <h1 class="text-center mb-5">Mon Dashboard</h1>
+            <div class="row">
+                <!-- Nombre total d'images scannées -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Images Scannées</h5>
+                            <p class="card-text display-4">150</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Taux de précision moyen -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Précision Moyenne</h5>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Placeholder pour autre statistique -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Scans Réussis</h5>
+                            <p class="card-text display-4">142</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Diagramme circulaire : répartition des catégories -->
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Répartition des Catégories</h5>
+                            <canvas id="categoryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!-- Diagramme en barres : précision par scan -->
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Précision par Scan</h5>
+                            <canvas id="precisionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'prune_app/css/dashboard.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Données simulées
+        const categoryData = {
+            labels: ['Pourries', 'Saines', 'Immatures'],
+            datasets: [{
+                data: [30, 100, 20],
+                backgroundColor: ['#dc3545', '#28a745', '#ffc107']
+            }]
+        };
+
+        const precisionData = {
+            labels: ['Scan 1', 'Scan 2', 'Scan 3', 'Scan 4', 'Scan 5'],
+            datasets: [{
+                label: 'Précision (%)',
+                data: [80, 85, 90, 78, 92],
+                backgroundColor: '#3498db'
+            }]
+        };
+
+        // Diagramme circulaire
+        new Chart(document.getElementById('categoryChart'), {
+            type: 'pie',
+            data: categoryData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: { color: '#f9f9f9' }
+                    }
+                }
+            }
+        });
+
+        // Diagramme en barres
+        new Chart(document.getElementById('precisionChart'), {
+            type: 'bar',
+            data: precisionData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        labels: { color: '#f9f9f9' }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { color: '#f9f9f9' },
+                        grid: { color: 'rgba(255,255,255,0.1)' }
+                    },
+                    x: {
+                        ticks: { color: '#f9f9f9' },
+                        grid: { color: 'rgba(255,255,255,0.1)' }
+                    }
+                }
+            }
+        });
+    </script>
+{% endblock %}

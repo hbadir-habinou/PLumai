@@ -1,0 +1,24 @@
+{% extends 'prune_app/base.html' %}
+{% load static %}
+
+{% block title %}À propos - PruneAI{% endblock %}
+
+{% block content %}
+    <section class="section section-light">
+        <div class="container">
+            <h2 class="section-title text-center">À propos de PruneAI</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3>Notre mission</h3>
+                    <p>Fondée en 2023, PruneAI est née de la vision d'intégrer les technologies d'intelligence artificielle dans le secteur agricole pour résoudre les défis actuels et futurs de production.</p>
+                    <p>Notre équipe d'experts en IA et en agronomie travaille sans relâche pour créer des solutions innovantes qui transforment l'agriculture traditionnelle en agriculture de précision.</p>
+                    <p>Nous nous engageons à aider les agriculteurs à maximiser leur rendement tout en minimisant leur impact environnemental grâce à des technologies intelligentes et durables.</p>
+                    <a href="{% url 'contact' %}" class="btn btn-primary">Nous contacter</a>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <img src="{% static 'prune_app/images/placeholder_600x400.png' %}" alt="À propos de PruneAI" class="img-fluid rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

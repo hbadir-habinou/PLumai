@@ -1,0 +1,38 @@
+{% extends 'prune_app/base.html' %}
+{% load static %}
+
+{% block title %}Scan - PruneAI{% endblock %}
+
+{% block content %}
+    <section class="section section-light">
+        <div class="container">
+            <h2 class="section-title text-center">Scanner une Prune</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Téléchargez une image</h5>
+                            <p class="card-text">Sélectionnez une image de prune pour analyse par notre IA.</p>
+                            <input type="file" class="form-control mb-3" id="imageUpload" accept="image/*">
+                            <button type="button" class="btn btn-primary w-100" onclick="alert('Analyse non implémentée pour l\'instant.')">Analyser</button>
+                            <div id="preview" class="mt-3">
+                                <img id="imagePreview" src="#" alt="Aperçu" class="img-fluid d-none" style="max-height: 300px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+            const preview = document.getElementById('imagePreview');
+            const file = event.target.files[0];
+            if (file) {
+                preview.src = URL.createObjectURL(file);
+                preview.classList.remove('d-none');
+            }
+        });
+    </script>
+{% endblock %}

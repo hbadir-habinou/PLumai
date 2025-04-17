@@ -1,0 +1,25 @@
+{% extends 'prune_app/base.html' %}
+{% load static %}
+
+{% block title %}Mon Profil - PruneAI{% endblock %}
+
+{% block content %}
+    <section class="section section-light">
+        <div class="container">
+            <h2 class="section-title text-center">Mon Profil</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Informations personnelles</h5>
+                            <p><strong>Prénom :</strong> {{ user.first_name }}</p>
+                            <p><strong>Nom :</strong> {{ user.last_name }}</p>
+                            <p><strong>Email :</strong> {{ user.email }}</p>
+                            <p><strong>Type d'utilisateur :</strong> {{ user.user_type }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

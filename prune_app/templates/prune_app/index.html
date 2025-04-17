@@ -1,0 +1,262 @@
+{% extends 'prune_app/base.html' %}
+{% load static %}
+
+{% block title %}PruneAI - Intelligence Artificielle pour l'Agriculture{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- Floating particles -->
+        <div class="particle" style="top: 20%; left: 10%;"></div>
+        <div class="particle" style="top: 30%; left: 20%;"></div>
+        <div class="particle" style="top: 15%; left: 30%;"></div>
+        <div class="particle" style="top: 55%; left: 15%;"></div>
+        <div class="particle" style="top: 65%; left: 35%;"></div>
+        <div class="particle" style="top: 75%; left: 25%;"></div>
+        <div class="particle" style="top: 40%; left: 85%;"></div>
+        <div class="particle" style="top: 30%; left: 70%;"></div>
+        <div class="particle" style="top: 60%; left: 80%;"></div>
+        
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>L'Intelligence Artificielle au service de <span class="typed-text" id="typedText">l'agriculture</span></h1>
+                    <p>PruneAI révolutionne l'industrie agricole grâce à des solutions intelligentes pour l'analyse et la classification des prunes par intelligence artificielle, améliorant la productivité et la qualité.</p>
+                    <div class="d-flex flex-wrap">
+                        <a href="{% url 'nos_services' %}" class="btn btn-primary mb-3 mb-md-0"><i class="bi bi-lightning-charge"></i> Découvrir nos services</a>
+                        <a href="{% url 'contact' %}" class="btn btn-outline mb-3 mb-md-0"><i class="bi bi-chat-dots"></i> Nous contacter</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{% static 'prune_app/images/doctor.png' %}" alt="IA Agriculture" class="floating-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section section-light" id="services">
+        <div class="container">
+            <h2 class="section-title text-center">Nos Services</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="services-card">
+                        <i class="bi bi-camera"></i>
+                        <h3>Scanner & Analyse</h3>
+                        <p>Scannez vos prunes pour une classification immédiate grâce à notre technologie d'intelligence artificielle de pointe.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="services-card">
+                        <i class="bi bi-graph-up"></i>
+                        <h3>Suivi & Statistiques</h3>
+                        <p>Accédez à des tableaux de bord interactifs et à des analyses détaillées sur vos cultures et productions.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="services-card">
+                        <i class="bi bi-lightbulb"></i>
+                        <h3>Recommandations</h3>
+                        <p>Recevez des conseils personnalisés pour optimiser la qualité et le rendement de vos cultures.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title text-center">Comment ça fonctionne</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">1</div>
+                    <h3 class="step-title">Créez un compte</h3>
+                    <p>Inscrivez-vous gratuitement sur notre plateforme</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2</div>
+                    <h3 class="step-title">Scannez vos prunes</h3>
+                    <p>Utilisez notre outil de scan intelligent</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3</div>
+                    <h3 class="step-title">Analysez les résultats</h3>
+                    <p>Obtenez des résultats précis et détaillés</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">4</div>
+                    <h3 class="step-title">Optimisez votre production</h3>
+                    <p>Améliorez vos cultures grâce à nos insights</p>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="{% static 'prune_app/images/placeholder_600x400.png' %}" alt="Fonctionnement PruneAI" class="img-fluid rounded-lg shadow-lg">
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <h3>Une technologie de pointe pour l'agriculture moderne</h3>
+                    <p>Notre système d'intelligence artificielle analyse instantanément vos prunes et les classe selon leur qualité, leur maturité et leur variété avec une précision remarquable.</p>
+                    <p>Grâce à nos algorithmes d'apprentissage avancés, notre système s'améliore continuellement pour vous offrir les résultats les plus précis possibles.</p>
+                    <div class="mt-4">
+                        <a href="{% url 'signin' %}" class="btn btn-primary">Commencer maintenant</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Section -->
+    <section class="section section-light tech-section" id="about">
+        <div class="tech-dots"></div>
+        <div class="container">
+            <h2 class="section-title text-center">Notre Technologie</h2>
+            <div class="row text-center">
+                <div class="col-md-3 mb-4">
+                    <div class="tech-circle">
+                        <i class="bi bi-robot"></i>
+                    </div>
+                    <h4 class="tech-title">Intelligence Artificielle</h4>
+                    <p>Des algorithmes de pointe pour l'analyse d'images</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="tech-circle">
+                        <i class="bi bi-cpu"></i>
+                    </div>
+                    <h4 class="tech-title">Deep Learning</h4>
+                    <p>Modèles neuronaux entraînés pour la classification</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="tech-circle">
+                        <i class="bi bi-cloud"></i>
+                    </div>
+                    <h4 class="tech-title">Cloud Computing</h4>
+                    <p>Solution hébergée pour un accès de partout</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="tech-circle">
+                        <i class="bi bi-bar-chart"></i>
+                    </div>
+                    <h4 class="tech-title">Analytics</h4>
+                    <p>Tableaux de bord et insights personnalisés</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6">
+                    <h3>À propos de PruneAI</h3>
+                    <p>Fondée en 2023, PruneAI est née de la vision d'intégrer les technologies d'intelligence artificielle dans le secteur agricole pour résoudre les défis actuels et futurs de production.</p>
+                    <p>Notre équipe d'experts en IA et en agronomie travaille sans relâche pour créer des solutions innovantes qui transforment l'agriculture traditionnelle en agriculture de précision.</p>
+                    <p>Nous nous engageons à aider les agriculteurs à maximiser leur rendement tout en minimisant leur impact environnemental grâce à des technologies intelligentes et durables.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{% static 'prune_app/images/placeholder_600x400.png' %}" alt="À propos de PruneAI" class="img-fluid rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title text-center">Ce que disent nos clients</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p class="testimonial-text">PruneAI a révolutionné ma façon de travailler. L'analyse en temps réel m'a permis d'optimiser ma production et d'augmenter ma rentabilité de 30%.</p>
+                        <div class="testimonial-author">
+                            <img src="{% static 'prune_app/images/placeholder_100x100.png' %}" alt="Jean Dupont">
+                            <div>
+                                <h4>Jean Dupont</h4>
+                                <p>Producteur à Bordeaux</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p class="testimonial-text">La précision de classification est impressionnante. Je gagne un temps précieux et la qualité de mes produits s'est considérablement améliorée.</p>
+                        <div class="testimonial-author">
+                            <img src="{% static 'prune_app/images/placeholder_100x100.png' %}" alt="Marie Laurent">
+                            <div>
+                                <h4>Marie Laurent</h4>
+                                <p>Agricultrice à Lyon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p class="testimonial-text">Le tableau de bord est intuitif et les insights sont vraiment pertinents. Une solution indispensable pour l'agriculture moderne.</p>
+                        <div class="testimonial-author">
+                            <img src="{% static 'prune_app/images/placeholder_100x100.png' %}" alt="Pierre Moreau">
+                            <div>
+                                <h4>Pierre Moreau</h4>
+                                <p>Coopérative agricole</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2 class="cta-title">Prêt à transformer votre agriculture ?</h2>
+            <p class="cta-text">Rejoignez les agriculteurs qui utilisent déjà PruneAI pour optimiser leur production et augmenter leur rendement. Commencez dès aujourd'hui !</p>
+            <a href="{% url 'signin' %}" class="btn btn-cta"><i class="bi bi-arrow-right-circle"></i> Essayer gratuitement</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section section-light" id="contact">
+        <div class="container">
+            <h2 class="section-title text-center">Contactez-nous</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <form class="contact-form" method="POST">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Votre nom" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Votre email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Sujet">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Votre message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                    </form>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <div class="contact-info">
+                        <div class="mb-4">
+                            <i class="bi bi-geo-alt text-primary me-2"></i>
+                            <span>123 Avenue de l'Innovation, 75000 Paris, France</span>
+                        </div>
+                        <div class="mb-4">
+                            <i class="bi bi-envelope text-primary me-2"></i>
+                            <span>contact@pruneai.com</span>
+                        </div>
+                        <div class="mb-4">
+                            <i class="bi bi-telephone text-primary me-2"></i>
+                            <span>+33 1 23 45 67 89</span>
+                        </div>
+                        <div class="mb-4">
+                            <i class="bi bi-clock text-primary me-2"></i>
+                            <span>Lun - Ven: 9h00 - 18h00</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="ratio ratio-16x9">
+                            <img src="{% static 'prune_app/images/placeholder_600x400.png' %}" alt="Carte" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

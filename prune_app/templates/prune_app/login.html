@@ -1,0 +1,122 @@
+{% extends 'prune_app/base.html' %}
+{% load static %}
+
+{% block title %}Connexion - PruneAI{% endblock %}
+
+{% block content %}
+    <main class="main-content">
+        <div class="container">
+            <div class="login-container fadeInUp glassmorphism">
+                <!-- Animated background -->
+                <div class="animated-bg">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+
+                <div class="row g-0 h-100">
+                    <!-- Left side with image and welcome message -->
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center p-5 login-left">
+                        <div class="text-center text-white">
+                            <h2 class="fw-bold mb-4 neon-text">Bienvenue sur PruneAI</h2>
+                            <p class="mb-4">Connectez-vous pour accéder à votre compte et optimiser vos cultures avec notre intelligence artificielle.</p>
+                            <img src="{% static 'prune_app/images/agriculture-intelligente.jpg' %}" alt="Agriculture Intelligente" class="img-fluid rounded-4 shadow-lg" style="max-width: 80%;">
+                            <div class="mt-4">
+                                <span class="d-inline-block me-3"><i class="bi bi-shield-check fs-4 text-primary"></i> Sécurisé</span>
+                                <span class="d-inline-block"><i class="bi bi-lightning-charge fs-4 text-warning"></i> Rapide</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right side with login form -->
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center p-5 login-right">
+                        <div class="w-100">
+                            <div class="text-center mb-5">
+                                <h2 class="fw-bold mb-3 text-gradient">Se connecter</h2>
+                                <p class="text-muted">Accédez à votre espace personnel</p>
+                            </div>
+
+                            <form id="loginForm" method="POST" action="{% url 'login' %}" class="needs-validation" novalidate>
+                                {% csrf_token %}
+                                <div class="form-floating mb-4">
+                                    <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="name@example.com" required>
+                                    <label for="email"><i class="bi bi-envelope-fill me-2"></i>Adresse email</label>
+                                    <div class="invalid-feedback">
+                                        Veuillez entrer une adresse email valide.
+                                    </div>
+                                </div>
+
+                                <div class="form-floating mb-4">
+                                    <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Mot de passe" required>
+                                    <label for="password"><i class="bi bi-lock-fill me-2"></i>Mot de passe</label>
+                                    <div class="invalid-feedback">
+                                        Veuillez entrer votre mot de passe.
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="rememberMe">
+                                        <label class="form-check-label" for="rememberMe">
+                                            Se souvenir de moi
+                                        </label>
+                                    </div>
+                                    <a href="#" class="text-decoration-none text-primary">Mot de passe oublié?</a>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-lg w-100 mb-4 glow-on-hover">
+                                    <i class="bi bi-box-arrow-in-right me-2"></i>Se connecter
+                                </button>
+
+                                <div class="text-center">
+                                    <p class="mb-0">Pas encore de compte? <a href="{% url 'signin' %}" class="text-decoration-none fw-bold text-gradient">S'inscrire</a></p>
+                                </div>
+
+                                <div class="divider my-4">ou</div>
+
+                                <div class="d-flex justify-content-center gap-3">
+                                    <a href="#" class="btn btn-outline-light rounded-circle social-btn">
+                                        <i class="bi bi-google"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-outline-light rounded-circle social-btn">
+                                        <i class="bi bi-facebook"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-outline-light rounded-circle social-btn">
+                                        <i class="bi bi-linkedin"></i>
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'prune_app/css/login.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block extra_js %}
+    <script>
+        // Form validation
+        (function () {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+{% endblock %}
