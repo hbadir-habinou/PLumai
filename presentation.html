@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlumAI - JCIA Hackathon 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6A11CB;
+            --secondary-color: #2575FC;
+            --accent-color: #FF6B6B;
+            --dark-bg: #0A0A23;
+            --light-bg: #F5F6F5;
+            --dark-text: #f0f0f0;
+            --light-text: #1a1a1a;
+            --card-bg-dark: rgba(255, 255, 255, 0.05);
+            --card-bg-light: rgba(0, 0, 0, 0.05);
+            --glow: 0 0 15px rgba(106, 17, 203, 0.7);
+            --neon-glow: 0 0 5px rgba(37, 117, 252, 0.5), 0 0 20px rgba(37, 117, 252, 0.3);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--dark-bg);
+            color: var(--dark-text);
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: var(--dark-bg);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--neon-glow);
+        }
+
+        .nav-items {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.2);
+            color: var(--accent-color);
+        }
+
+        .logo {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 100px;
+            height: auto;
+            z-index: 1000;
+            filter: drop-shadow(0 0 10px rgba(106, 17, 203, 0.5));
+        }
+
+        main {
+            padding: 100px 20px 120px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: neonGlow 2s ease-in-out infinite alternate;
+            margin-bottom: 2rem;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+            margin: 1rem auto;
+            animation: pulseLine 3s infinite;
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            text-shadow: var(--neon-glow);
+        }
+
+        .section {
+            background: var(--card-bg-dark);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 2rem;
+            box-shadow: var(--neon-glow);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        p, ul {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--dark-text);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        li::before {
+            content: '▹';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            top: 0.3rem;
+        }
+
+        .justification, .objectives {
+            margin-top: 1rem;
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateX(10px);
+        }
+
+        .team-member strong {
+            color: var(--accent-color);
+        }
+
+        @keyframes neonGlow {
+            0% { text-shadow: 0 0 10px rgba(106, 17, 203, 0.7); }
+            100% { text-shadow: 0 0 25px rgba(37, 117, 252, 0.9), 0 0 40px rgba(106, 17, 203, 0.7); }
+        }
+
+        @keyframes pulseLine {
+            0%, 100% { width: 100px; }
+            50% { width: 150px; }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .logo {
+                width: 80px;
+                bottom: 10px;
+                left: 10px;
+            }
+
+            header {
+                padding: 0.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-items">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Passer au thème clair">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </header>
+    <img src="logo_nom_en_bas.png" alt="PlumAI Logo" class="logo">
+    <main>
+        <div class="container">
+            <h1>PlumAI</h1>
+
+            <div class="section">
+                <h2>1. Nom de la solution</h2>
+                <p>Nous proposons le nom <strong>PlumAI</strong>.</p>
+                <div class="justification">
+                    <h3>Justification :</h3>
+                    <ul>
+                        <li>"Plum" refers to African plums, the core of our project.</li>
+                        <li>"AI" highlights the use of artificial intelligence for classifying plums into six categories: unaffected, bruised, cracked, rotten, spotted, unripe.</li>
+                        <li>The name is concise, memorable, and fitting for the JCIA Hackathon 2025.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>2. Présentation de l'équipe</h2>
+                <div class="team-member">
+                    <p><strong>BABA A BABA Victor Aymerick (Chef)</strong> : Leads team coordination, project management, and strategic decision-making.</p>
+                </div>
+                <div class="team-member">
+                    <p><strong>HABIBA DAIROU</strong> : Handles data collection, preprocessing, and model implementation.</p>
+                </div>
+                <div class="team-member">
+                    <p><strong>ABDOURAMAN ISSA</strong> : Focuses on model training, performance evaluation, and demo preparation.</p>
+                </div>
+                <div class="team-member">
+                    <p><strong>SANAMA KING</strong> : Develops the user-friendly front-end interface.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>3. Définition de la solution</h2>
+                <p>PlumAI leverages a convolutional neural network (CNN) to automatically classify African plums into six quality and defect categories: unaffected, bruised, cracked, rotten, spotted, and unripe. Trained on the Kaggle <em>african-plums-quality-and-defect-assessment-data</em> dataset, it predicts plum quality from images with high accuracy.</p>
+            </div>
+
+            <div class="section">
+                <h2>4. Objectifs du projet</h2>
+                <p><strong>Objectif principal</strong> : Create an automated tool to assist farmers and industries in sorting African plums by quality, reducing manual effort and boosting efficiency.</p>
+                <div class="objectives">
+                    <h3>Objectifs spécifiques :</h3>
+                    <ul>
+                        <li>Develop a precise CNN model for six-category plum classification.</li>
+                        <li>Achieve at least 80% accuracy on validation data.</li>
+                        <li>Deliver a simple interface for image-based plum classification.</li>
+                        <li>Meet JCIA Hackathon 2025 requirements (GitHub submission, video, form).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('light-theme');
+                const isLight = document.body.classList.contains('light-theme');
+                themeToggle.innerHTML = `<i class="fas ${isLight ? 'fa-moon' : 'fa-sun'}"></i>`;
+                themeToggle.setAttribute('aria-label', isLight ? 'Passer au thème sombre' : 'Passer au thème clair');
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            });
+
+            window.addEventListener('DOMContentLoaded', () => {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'light') {
+                    document.body.classList.add('light-theme');
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                    themeToggle.setAttribute('aria-label', 'Passer au thème sombre');
+                } else {
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                    themeToggle.setAttribute('aria-label', 'Passer au thème clair');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
